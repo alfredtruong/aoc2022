@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1676353889 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\main.cpp
+	"utils/utils.hpp"
+	"day2.hpp"
+
+1676358326 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\utils\utils.hpp
+	<vector>
+	<string>
+	<iostream>
+
+1676357582 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\utils\utils.cpp
+	"utils.hpp"
+	<fstream>
+	<sstream>
+
+1676353297 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\q1.cpp
+	<iostream>
+	"utils/utils.hpp"
+	<map>
+	<algorithm>
+
+1676353697 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day1.cpp
+	"utils/utils.hpp"
+	"day1.hpp"
+	<iostream>
+	<map>
+	<algorithm>
+
+1676353475 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day1.cpp
+	<iostream>
+	"utils/utils.hpp"
+	<map>
+	<algorithm>
+
+1676358511 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day1.hpp
+
+1676353880 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day2.cpp
+	"utils/utils.hpp"
+	"day2.hpp"
+
+1676357622 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day2.hpp
+
