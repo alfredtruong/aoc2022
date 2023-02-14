@@ -5,5 +5,6 @@
 int main()
 {
   day2_part1();
+  day2_part2();
   return 0;
 }

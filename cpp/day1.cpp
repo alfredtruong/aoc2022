@@ -4,6 +4,8 @@
 #include <map>
 #include <algorithm>
 
+namespace day1 {
+
 // build per elf total calories
 std::map<int,int> build_elf_map(std::string filename)
 {
@@ -99,16 +101,18 @@ void part_2_sum_top_3(std::string blurb,std::string filename,bool verbose = fals
   std::cout << "total top 3 weight : " << cum_weight_top_3;
 }
 
+}
+
 void day1_part1()
 {
-  // part 1
-  part_1_most_calories("test data","../input/day01_0.txt");
-  part_1_most_calories("question data","../input/day01_1.txt");
+  std::cout << __func__ << std::endl << std::endl;
+  day1::part_1_most_calories("test data","../input/day01_0.txt");
+  day1::part_1_most_calories("question data","../input/day01_1.txt");
 }
 
 void day1_part2()
 {
-  // part 2
-  part_2_sum_top_3("test data","../input/day01_0.txt");
-  part_2_sum_top_3("question data","../input/day01_1.txt");
+  std::cout << __func__ << std::endl << std::endl;
+  day1::part_2_sum_top_3("test data","../input/day01_0.txt");
+  day1::part_2_sum_top_3("question data","../input/day01_1.txt");
 }
