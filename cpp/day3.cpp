@@ -51,9 +51,9 @@ char identify_double_packed_item(std::string packed_items)
   return duplicated_item;
 }
 
-void part_1_sum_packing_priorities(std::string blurb,std::string filename)
+void part_1_sum_packing_priorities(std::string blurb,std::string filepath)
 {
-  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filepath,' ',false);
 
   int total_prio = 0;
   int packed_items = 0;
@@ -113,9 +113,9 @@ char identify_elf_group_badge(std::string e1,std::string e2,std::string e3,bool 
     exit(1);
 }
 
-void part_2_sum_group_badge_priorities(std::string blurb,std::string filename)
+void part_2_sum_group_badge_priorities(std::string blurb,std::string filepath)
 {
-  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filepath,' ',false);
 
   int i = 0;
   int group_counter = 0;

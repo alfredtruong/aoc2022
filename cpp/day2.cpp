@@ -82,7 +82,7 @@ int rock_paper_scissors_score(const char opponent_move,const char my_move)
   return play_value(my_move) + win_lose_value(opponent_move,my_move);
 }
 
-void part_1_tournament_score(std::string blurb,std::string filename)
+void part_1_tournament_score(std::string blurb,std::string filepath)
 {
   /*
   std::cout << rock_paper_scissors_score('A','Y') << std::endl;
@@ -90,7 +90,7 @@ void part_1_tournament_score(std::string blurb,std::string filename)
   std::cout << rock_paper_scissors_score('C','Z') << std::endl;
   */
 
-  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filepath,' ',false);
 
   int tournament_score = 0;
   int games_played = 0;
@@ -154,7 +154,7 @@ int required_outcome_score(const char opponent_move,const char required_outcome)
   return required_outcome_play_value(opponent_move,required_outcome) + required_outcome_outcome_value(required_outcome);
 }
 
-void part_2_tournament_score(std::string blurb,std::string filename)
+void part_2_tournament_score(std::string blurb,std::string filepath)
 {
   /*
   std::cout << rock_paper_scissors_score('A','Y') << std::endl;
@@ -162,7 +162,7 @@ void part_2_tournament_score(std::string blurb,std::string filename)
   std::cout << rock_paper_scissors_score('C','Z') << std::endl;
   */
 
-  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filepath,' ',false);
 
   int tournament_score = 0;
   int games_played = 0;

@@ -7,9 +7,9 @@
 namespace day1 {
 
 // build per elf total calories
-std::map<int,int> build_elf_map(std::string filename)
+std::map<int,int> build_elf_map(std::string filepath)
 {
-  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,'\n',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filepath,'\n',false);
 
   // compute totals for each elf
   int elf_id = 0;
@@ -42,12 +42,12 @@ std::map<int,int> build_elf_map(std::string filename)
   return elf_map;
 }
 
-void part_1_most_calories(std::string blurb,std::string filename)
+void part_1_most_calories(std::string blurb,std::string filepath)
 {
   std::cout << blurb << std::endl;
 
   // build per elf total calories
-  std::map<int,int> elf_map = build_elf_map(filename);
+  std::map<int,int> elf_map = build_elf_map(filepath);
 
   // grab greatest
   int greatest_elf_id = -1;
@@ -69,12 +69,12 @@ void part_1_most_calories(std::string blurb,std::string filename)
   std::cout << std::endl;
 }
 
-void part_2_sum_top_3(std::string blurb,std::string filename,bool verbose = false)
+void part_2_sum_top_3(std::string blurb,std::string filepath,bool verbose = false)
 {
   std::cout << blurb << std::endl;
 
   // build per elf total calories
-  std::map<int,int> elf_map = build_elf_map(filename);
+  std::map<int,int> elf_map = build_elf_map(filepath);
 
   // sort map
   std::vector<std::pair<int,int>> elf_vector; // sort with vector trick

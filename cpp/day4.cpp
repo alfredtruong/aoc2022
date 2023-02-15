@@ -6,7 +6,7 @@ namespace day4 {
 
 void elf_jobs_print(std::string elf_jobs)
 {
-  std::vector<int> elf_jobs_parsed = utils::parse_line<int>(elf_jobs,'-',false);
+  std::vector<int> elf_jobs_parsed = utils::split_string<int>(elf_jobs,'-',false);
   std::cout << elf_jobs << " : " << elf_jobs_parsed[0] << " : " << elf_jobs_parsed[1] << std::endl;
 }
 
@@ -16,8 +16,8 @@ bool do_elf_jobs_fully_overlap(std::string elf1_jobs,std::string elf2_jobs)
   //elf_jobs_print(elf1_jobs);
   //elf_jobs_print(elf2_jobs);
 
-  std::vector<int> elf1_jobs_parsed = utils::parse_line<int>(elf1_jobs,'-',false);
-  std::vector<int> elf2_jobs_parsed = utils::parse_line<int>(elf2_jobs,'-',false);
+  std::vector<int> elf1_jobs_parsed = utils::split_string<int>(elf1_jobs,'-',false);
+  std::vector<int> elf2_jobs_parsed = utils::split_string<int>(elf2_jobs,'-',false);
 
   if (
       ((elf1_jobs_parsed[0] <= elf2_jobs_parsed[0]) && (elf1_jobs_parsed[1] >= elf2_jobs_parsed[1])) || // elf1_jobs encapsulate elf2_jobs
@@ -31,9 +31,9 @@ bool do_elf_jobs_fully_overlap(std::string elf1_jobs,std::string elf2_jobs)
     return false;
   }
 }
-void part_1_fully_overlapping_count(std::string blurb,std::string filename,bool verbose = false)
+void part_1_fully_overlapping_count(std::string blurb,std::string filepath,bool verbose = false)
 {
-  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,',');
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filepath,',');
 
   //std::cout << __func__ << " : " << data.size() << std::endl;
   int fully_overlapping_count = 0;
@@ -70,8 +70,8 @@ bool do_elf_jobs_partially_overlap(std::string elf1_jobs,std::string elf2_jobs)
   //elf_jobs_print(elf1_jobs);
   //elf_jobs_print(elf2_jobs);
 
-  std::vector<int> elf1_jobs_parsed = utils::parse_line<int>(elf1_jobs,'-',false);
-  std::vector<int> elf2_jobs_parsed = utils::parse_line<int>(elf2_jobs,'-',false);
+  std::vector<int> elf1_jobs_parsed = utils::split_string<int>(elf1_jobs,'-',false);
+  std::vector<int> elf2_jobs_parsed = utils::split_string<int>(elf2_jobs,'-',false);
 
   if (
       ((elf1_jobs_parsed[1] >= elf2_jobs_parsed[0]) && (elf1_jobs_parsed[0] <= elf2_jobs_parsed[1])) // elf1_jobs overlaps elf2_jobs
@@ -85,9 +85,9 @@ bool do_elf_jobs_partially_overlap(std::string elf1_jobs,std::string elf2_jobs)
   }
 }
 
-void part_2_partially_overlapping_count(std::string blurb,std::string filename,bool verbose = false)
+void part_2_partially_overlapping_count(std::string blurb,std::string filepath,bool verbose = false)
 {
-  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,',');
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filepath,',');
 
   //std::cout << __func__ << " : " << data.size() << std::endl;
   int partially_overlapping_count = 0;

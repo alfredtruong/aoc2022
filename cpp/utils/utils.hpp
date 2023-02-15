@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <string>
-#include <iostream>
 #include <set>
+#include <iostream>
 #include <fstream>
 #include <sstream>
 
@@ -12,12 +12,12 @@ namespace utils
 {
 
 template <typename T>
-std::vector<T> parse_line(const std::string line,const char delimiter,bool verbose = false)
+std::vector<T> split_string(const std::string str,const char delimiter,bool verbose = false)
 {
   //std::cout << __func__ << std::endl;
-  //std::cout << line << std::endl;
+  //std::cout << s << std::endl;
 
-  std::stringstream ss(line);
+  std::stringstream ss(str);
   std::vector<T> vec_words; // container for all parsed words
   std::string word; // temp container for single parsed word
   T converted;
@@ -62,7 +62,7 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
       std::cout << "[" << lines_read << "]\t";
     }
 
-    std::vector<T> words = parse_line<T>(line,delimiter,false); // parse line
+    std::vector<T> words = split_string<T>(line,delimiter,false); // parse line
     vec_lines.push_back(words); // save line
 
     if (verbose)
