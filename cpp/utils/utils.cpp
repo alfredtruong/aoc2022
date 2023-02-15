@@ -45,3 +45,8 @@ std::vector<std::vector<std::string>> read_csv(const std::string filepath,const 
 
   return out;
 }
+
+int char_to_int(char c)
+{
+  return (int)c - 48;
+}
