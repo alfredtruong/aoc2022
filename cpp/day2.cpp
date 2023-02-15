@@ -90,7 +90,7 @@ void part_1_tournament_score(std::string blurb,std::string filename)
   std::cout << rock_paper_scissors_score('C','Z') << std::endl;
   */
 
-  std::vector<std::vector<std::string>> data = read_csv(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
 
   int tournament_score = 0;
   int games_played = 0;
@@ -162,7 +162,7 @@ void part_2_tournament_score(std::string blurb,std::string filename)
   std::cout << rock_paper_scissors_score('C','Z') << std::endl;
   */
 
-  std::vector<std::vector<std::string>> data = read_csv(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
 
   int tournament_score = 0;
   int games_played = 0;

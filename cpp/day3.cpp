@@ -53,7 +53,7 @@ char identify_double_packed_item(std::string packed_items)
 
 void part_1_sum_packing_priorities(std::string blurb,std::string filename)
 {
-  std::vector<std::vector<std::string>> data = read_csv(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
 
   int total_prio = 0;
   int packed_items = 0;
@@ -82,30 +82,30 @@ char identify_elf_group_badge(std::string e1,std::string e2,std::string e3,bool 
   for(auto c:e2) s2.insert(c);
   for(auto c:e3) s3.insert(c);
 
-  if (verbose) show_set(s1);
-  if (verbose) show_set(s2);
-  if (verbose) show_set(s3);
+  if (verbose) utils::display_set(s1);
+  if (verbose) utils::display_set(s2);
+  if (verbose) utils::display_set(s3);
 
   // intersect e1 and e2
   std::set<char> intersect12;
   std::set_intersection(s1.begin(),s1.end(),
                         s2.begin(),s2.end(),
                         std::inserter(intersect12,intersect12.begin()));
-  if (verbose) show_set(intersect12);
+  if (verbose) utils::display_set(intersect12);
 
   // intersect e2 and e3
   std::set<char> intersect23;
   std::set_intersection(s2.begin(),s2.end(),
                         s3.begin(),s3.end(),
                         std::inserter(intersect23,intersect23.begin()));
-  if (verbose) show_set(intersect23);
+  if (verbose) utils::display_set(intersect23);
 
   // intersect e12 and e23
   std::set<char> intersect123;
   std::set_intersection(intersect12.begin(),intersect12.end(),
                         intersect23.begin(),intersect23.end(),
                         std::inserter(intersect123,intersect123.begin()));
-  if (verbose) show_set(intersect123);
+  if (verbose) utils::display_set(intersect123);
 
   if (intersect123.size() == 1)
     return *(intersect123.begin());
@@ -115,7 +115,7 @@ char identify_elf_group_badge(std::string e1,std::string e2,std::string e3,bool 
 
 void part_2_sum_group_badge_priorities(std::string blurb,std::string filename)
 {
-  std::vector<std::vector<std::string>> data = read_csv(filename,' ',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,' ',false);
 
   int i = 0;
   int group_counter = 0;

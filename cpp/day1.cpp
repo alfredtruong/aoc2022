@@ -9,7 +9,7 @@ namespace day1 {
 // build per elf total calories
 std::map<int,int> build_elf_map(std::string filename)
 {
-  std::vector<std::vector<std::string>> data = read_csv(filename,'\n',false);
+  std::vector<std::vector<std::string>> data = utils::parse_file<std::string>(filename,'\n',false);
 
   // compute totals for each elf
   int elf_id = 0;

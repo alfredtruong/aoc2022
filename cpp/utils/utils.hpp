@@ -5,11 +5,81 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include <fstream>
+#include <sstream>
 
-std::vector<std::vector<std::string>> read_csv(const std::string filepath,const char delimiter,bool verbose = false);
+namespace utils
+{
+
+template <typename T>
+std::vector<T> parse_line(const std::string line,const char delimiter,bool verbose = false)
+{
+  //std::cout << __func__ << std::endl;
+  //std::cout << line << std::endl;
+
+  std::stringstream ss(line);
+  std::vector<T> vec_words; // container for all parsed words
+  std::string word; // temp container for single parsed word
+  T converted;
+  while(std::getline(ss,word,delimiter))
+  {
+    if (verbose)
+    {
+      std::cout << word << std::endl;
+    }
+
+    // use stringstream to convert type
+    std::stringstream ssline;
+    ssline << word;
+    ssline >> converted;
+
+    // save it
+    vec_words.push_back(converted);
+  }
+  return vec_words;
+}
+
+/*
+template <> //inline, need inline if declaring specialization in hpp, dont need inline if moving specialization into cpp file
+std::vector<std::string> parse_line<std::string>(const std::string line,const char delimiter,bool verbose);
+*/
+template <typename T>
+std::vector<std::vector<T>> parse_file(const std::string filepath,const char delimiter,bool verbose = false)
+{
+  // open file
+  std::fstream f;
+  f.open(filepath,std::ios::in);
+
+  // read line
+  std::vector<std::vector<T>> vec_lines;
+  std::string line;
+  int lines_read = 0;
+  while (std::getline(f,line))
+  {
+    if (verbose)
+    {
+      lines_read++; // increment line counter
+      std::cout << "[" << lines_read << "]\t";
+    }
+
+    std::vector<T> words = parse_line<T>(line,delimiter,false); // parse line
+    vec_lines.push_back(words); // save line
+
+    if (verbose)
+    {
+      std::cout << std::endl;
+    }
+  }
+
+  // close file
+  f.close();
+
+  return vec_lines;
+}
+
 
 template<typename T>
-void show_vector(std::vector<T> v)
+void display_vector(std::vector<T> v)
 {
   for (auto x:v) {
     std::cout << x;
@@ -19,7 +89,7 @@ void show_vector(std::vector<T> v)
 }
 
 template<typename T>
-void show_set(std::set<T> s)
+void display_set(std::set<T> s)
 {
 
   std::cout << s.size() << std::endl;
@@ -30,3 +100,5 @@ void show_set(std::set<T> s)
 int char_to_int(char c);
 
 #endif // __UTILS_HPP
+
+}
