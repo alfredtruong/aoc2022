@@ -7,6 +7,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <map>
+#include <unordered_map>
 
 namespace utils
 {
@@ -77,7 +79,6 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
   return vec_lines;
 }
 
-
 template<typename T>
 void display_vector(std::vector<T> v)
 {
@@ -94,6 +95,24 @@ void display_set(std::set<T> s)
   std::cout << std::endl;
 }
 
+template<typename T>
+void display_map(std::map<T> m)
+{
+  std::cout << "[" << __func__ << "] size = " << m.size() << ", items = " << std::endl;
+  for(auto kv:m) std::cout << kv.first << " : " << kv.second << std::endl;
+  std::cout << std::endl;
+}
+int char_to_int(char c);
+
+/*
+template<typename T,typename dico>
+void display_dico(dico<T> m)
+{
+  std::cout << "[" << __func__ << "] size = " << m.size() << ", items = " << std::endl;
+  for(auto kv:m) std::cout << kv.first << " : " << kv.second << std::endl;
+  std::cout << std::endl;
+}
+*/
 int char_to_int(char c);
 
 #endif // __UTILS_HPP
