@@ -95,24 +95,23 @@ void display_set(std::set<T> s)
   std::cout << std::endl;
 }
 
-template<typename T>
-void display_map(std::map<T> m)
+template<typename T,typename U>
+void display_map(std::map<T,U> m)
 {
-  std::cout << "[" << __func__ << "] size = " << m.size() << ", items = " << std::endl;
+  std::cout << "[" << __func__ << "] size = " << m.size() << std::endl;
   for(auto kv:m) std::cout << kv.first << " : " << kv.second << std::endl;
   std::cout << std::endl;
 }
 int char_to_int(char c);
 
-/*
-template<typename T,typename dico>
-void display_dico(dico<T> m)
+template<typename T,typename U>
+void display_umap(std::unordered_map<T,U> m)
 {
-  std::cout << "[" << __func__ << "] size = " << m.size() << ", items = " << std::endl;
+  std::cout << "[" << __func__ << "] size = " << m.size() << std::endl;
   for(auto kv:m) std::cout << kv.first << " : " << kv.second << std::endl;
   std::cout << std::endl;
 }
-*/
+
 int char_to_int(char c);
 
 #endif // __UTILS_HPP
