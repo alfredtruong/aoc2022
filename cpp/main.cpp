@@ -7,7 +7,7 @@
 
 int main()
 {
-  day5_part1();
-  //day4_part2();
+  //day5_part1();
+  day5_part2();
   return 0;
 }

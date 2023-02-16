@@ -81,19 +81,16 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
 template<typename T>
 void display_vector(std::vector<T> v)
 {
-  for (auto x:v) {
-    std::cout << x;
-    std::cout << ", ";
-  }
+  std::cout << "[" << __func__ << "] size = " << v.size() << ", items = ";
+  for (auto x:v) std::cout << x << ", ";
   std::cout << std::endl;
 }
 
 template<typename T>
 void display_set(std::set<T> s)
 {
-
-  std::cout << s.size() << std::endl;
-  for(auto c:s) std::cout << c;
+  std::cout << "[" << __func__ << "] size = " << s.size() << ", items = ";
+  for(auto x:s) std::cout << x << ", ";
   std::cout << std::endl;
 }
 
