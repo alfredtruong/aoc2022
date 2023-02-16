@@ -36,6 +36,12 @@
 		<Unit filename="day1.hpp" />
 		<Unit filename="day2.cpp" />
 		<Unit filename="day2.hpp" />
+		<Unit filename="day3.cpp" />
+		<Unit filename="day3.hpp" />
+		<Unit filename="day4.cpp" />
+		<Unit filename="day4.hpp" />
+		<Unit filename="day5.cpp" />
+		<Unit filename="day5.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="utils/utils.cpp" />
 		<Unit filename="utils/utils.hpp" />
