@@ -117,14 +117,14 @@ void packet::show_signal()
 }
 
 
-void part_1_start_of_packer_marker(std::string blurb,std::string filename)
+void part_1_start_of_packer_marker(std::string blurb,std::string filepath)
 {
-  packet p(filename,4);
+  packet p(filepath,4);
 }
 
-void part_2_start_of_packer_marker(std::string blurb,std::string filename)
+void part_2_start_of_packer_marker(std::string blurb,std::string filepath)
 {
-  packet p(filename,14);
+  packet p(filepath,14);
 }
 
 }

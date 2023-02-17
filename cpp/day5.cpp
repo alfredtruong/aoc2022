@@ -7,9 +7,9 @@
 
 namespace day5 {
 
-ElveShip::ElveShip(const std::string filename)
+ElveShip::ElveShip(const std::string filepath)
 {
-  read_input_file(filename,false);
+  read_input_file(filepath,false);
   initialize_cargo_hold(false,false);
 }
 
@@ -263,19 +263,19 @@ void ElveShip::show_top()
   std::cout << std::endl;
 }
 
-void part_5_parse_and_execute_instructions(std::string blurb,std::string filename)
+void part_5_parse_and_execute_instructions(std::string blurb,std::string filepath)
 {
   // crate mover 9000
-  ElveShip ship(filename);
+  ElveShip ship(filepath);
   ship.execute_instructions();
   ship.show_top();
 }
 
-void part_5_parse_and_execute_instructions_for_crate_mover_9001(std::string blurb,std::string filename)
+void part_5_parse_and_execute_instructions_for_crate_mover_9001(std::string blurb,std::string filepath)
 {
 
   // crate mover 9001
-  ElveShip ship(filename);
+  ElveShip ship(filepath);
   ship.execute_instructions_for_crate_mover_9001(false);
   ship.show_top();
 }

@@ -80,35 +80,56 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
 }
 
 template<typename T>
-void display_vector(std::vector<T> v)
+void display_vector(std::vector<T> v,std::string blurb = "")
 {
-  std::cout << "[" << __func__ << "] size = " << v.size() << ", items = ";
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << v.size() << ", items = ";
   for (auto x:v) std::cout << x << ", ";
   std::cout << std::endl;
 }
 
 template<typename T>
-void display_set(std::set<T> s)
+void display_set(std::set<T> s,std::string blurb = "")
 {
-  std::cout << "[" << __func__ << "] size = " << s.size() << ", items = ";
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << s.size() << ", items = ";
   for(auto x:s) std::cout << x << ", ";
   std::cout << std::endl;
 }
 
 template<typename T,typename U>
-void display_map(std::map<T,U> m)
+void display_map(std::map<T,U> m,std::string blurb = "")
 {
-  std::cout << "[" << __func__ << "] size = " << m.size() << std::endl;
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << m.size() << std::endl;
   for(auto kv:m) std::cout << kv.first << " : " << kv.second << std::endl;
   std::cout << std::endl;
 }
-int char_to_int(char c);
 
 template<typename T,typename U>
-void display_umap(std::unordered_map<T,U> m)
+void display_umap(std::unordered_map<T,U> m,std::string blurb = "")
 {
-  std::cout << "[" << __func__ << "] size = " << m.size() << std::endl;
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << m.size() << std::endl;
   for(auto kv:m) std::cout << kv.first << " : " << kv.second << std::endl;
+  std::cout << std::endl;
+}
+
+template<typename T,typename U>
+void display_mapvec(std::map<T,std::vector<U>> m,std::string blurb = "")
+{
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << m.size() << std::endl;
+  for(auto kv:m) display_vector<U>(kv.second,kv.first);
+  std::cout << std::endl;
+}
+
+template<typename T,typename U>
+void display_umapvec(std::unordered_map<T,U> m,std::string blurb = "")
+{
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << m.size() << std::endl;
+  for(auto kv:m) display_vector<U>(kv.second,kv.first);
   std::cout << std::endl;
 }
 
