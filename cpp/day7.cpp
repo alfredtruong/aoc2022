@@ -257,7 +257,7 @@ int df::sum_dirsizes_less_than_x(int max_size)
 void part_1(std::string blurb,std::string filepath)
 {
   std::cout << blurb << std::endl;
-  df x(filepath,true);
+  df x(filepath);
   std::cout << std::endl;
   x.sum_dirsizes_less_than_x(100000);
 }
