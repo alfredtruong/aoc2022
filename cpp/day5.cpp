@@ -72,7 +72,7 @@ std::vector<int> ElveShip::identify_stack_centres(bool debug)
     }
   }
 
-  if (debug) utils::display_vector<int>(stack_centres);
+  if (debug) utils::display_vec<int>(stack_centres);
 
   return stack_centres;
 }
@@ -127,7 +127,7 @@ int ElveShip::size_of_biggest_stack(bool debug)
 void ElveShip::show_cargo_hold(bool debug)
 {
   if (debug) std::cout << "[" << __func__ << "] " << std::endl;
-  if (debug) for (int x=0;x<m_cargo_hold_stacks.size();x++) utils::display_vector<char>(m_cargo_hold_stacks[x]);
+  if (debug) for (int x=0;x<m_cargo_hold_stacks.size();x++) utils::display_vec<char>(m_cargo_hold_stacks[x]);
 
   // show stack size
   std::cout << "size\t";

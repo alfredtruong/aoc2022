@@ -104,7 +104,7 @@ void df::parse_terminal_output(std::string filepath,bool verbose)
     if (is_line_command(line))
     {
       if (verbose) std::cout << "[user cmd] line = '" << line << "'" << std::endl;
-      if (verbose) utils::display_vector(m_cwd,"m_cwd"); // where am i
+      if (verbose) utils::display_vec(m_cwd,"m_cwd"); // where am i
 
       std::string cmd = "";
       std::string args = "";
@@ -141,7 +141,7 @@ void df::parse_terminal_output(std::string filepath,bool verbose)
 void df::parse_command(const std::string line,std::string &cmd,std::string &args,bool verbose)
 {
   std::vector<std::string> parsed_line = utils::split_string<std::string>(line,' ');
-  if (verbose) utils::display_vector(parsed_line,"parsed_line");
+  if (verbose) utils::display_vec(parsed_line,"parsed_line");
   cmd = parsed_line[1];
   if (parsed_line.size()==2)
   {
@@ -201,7 +201,7 @@ void df::ls_parse_output(std::string line,bool verbose)
   std::vector<std::string> parsed_line = utils::split_string<std::string>(line,' ');
 
   if (verbose) std::cout << cwd_str << " ";
-  if (verbose) utils::display_vector<std::string>(m_dirContentsMap[cwd_str],cwd_str);
+  if (verbose) utils::display_vec<std::string>(m_dirContentsMap[cwd_str],cwd_str);
 
   std::string dir_or_filesize = parsed_line[0];
   std::string objname = parsed_line[1];

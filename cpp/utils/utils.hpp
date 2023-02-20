@@ -25,10 +25,7 @@ std::vector<T> split_string(const std::string str,const char delimiter,bool verb
   T converted;
   while(std::getline(ss,word,delimiter))
   {
-    if (verbose)
-    {
-      std::cout << word << std::endl;
-    }
+    if (verbose) std::cout << word << ", ";
 
     // use stringstream to convert type
     std::stringstream ssline;
@@ -38,6 +35,7 @@ std::vector<T> split_string(const std::string str,const char delimiter,bool verb
     // save it
     vec_words.push_back(converted);
   }
+  //if (verbose) std::cout << std::endl;
   return vec_words;
 }
 
@@ -46,7 +44,7 @@ template <> //inline, need inline if declaring specialization in hpp, dont need 
 std::vector<std::string> parse_line<std::string>(const std::string line,const char delimiter,bool verbose);
 */
 template <typename T>
-std::vector<std::vector<T>> parse_file(const std::string filepath,const char delimiter,bool verbose = false)
+std::vector<std::vector<T>> parse_file(const std::string filepath,const char delimiter,bool verbose = false,bool verbose_line = false)
 {
   // open file
   std::fstream f;
@@ -60,16 +58,16 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
   {
     if (verbose)
     {
-      lines_read++; // increment line counter
       std::cout << "[" << lines_read << "]\t";
     }
 
-    std::vector<T> words = split_string<T>(line,delimiter,false); // parse line
+    std::vector<T> words = split_string<T>(line,delimiter,verbose_line); // parse line
     vec_lines.push_back(words); // save line
 
     if (verbose)
     {
       std::cout << std::endl;
+      lines_read++; // increment line counter
     }
   }
 
@@ -80,20 +78,32 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
 }
 
 template<typename T>
-void display_vector(std::vector<T> v,std::string blurb = "")
+void display_vec(std::vector<T> v,std::string blurb = "",std::string delimiter = ", ")
 {
   if (blurb=="") blurb = __func__;
   std::cout << "[" << blurb << "] size = " << v.size() << ", items = ";
-  for (auto x:v) std::cout << x << ", ";
+  for (auto x:v) std::cout << x << delimiter;
   std::cout << std::endl;
 }
 
 template<typename T>
-void display_set(std::set<T> s,std::string blurb = "")
+void display_vecvec(std::vector<std::vector<T>> vv,std::string blurb = "",std::string delimiter = ", ")
+{
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << vv.size() << ", items = " << std::endl;
+  for (auto v : vv)
+  {
+    for (auto x : v) std::cout << x << delimiter;
+    std::cout << std::endl;
+  }
+}
+
+template<typename T>
+void display_set(std::set<T> s,std::string blurb = "",std::string delimiter = ", ")
 {
   if (blurb=="") blurb = __func__;
   std::cout << "[" << blurb << "] size = " << s.size() << ", items = ";
-  for(auto x:s) std::cout << x << ", ";
+  for(auto x:s) std::cout << x << delimiter;
   std::cout << std::endl;
 }
 
@@ -120,7 +130,7 @@ void display_mapvec(std::map<T,std::vector<U>> m,std::string blurb = "")
 {
   if (blurb=="") blurb = __func__;
   std::cout << "[" << blurb << "] size = " << m.size() << std::endl;
-  for(auto kv:m) display_vector<U>(kv.second,kv.first);
+  for(auto kv:m) display_vec<U>(kv.second,kv.first);
   std::cout << std::endl;
 }
 
@@ -129,7 +139,7 @@ void display_umapvec(std::unordered_map<T,U> m,std::string blurb = "")
 {
   if (blurb=="") blurb = __func__;
   std::cout << "[" << blurb << "] size = " << m.size() << std::endl;
-  for(auto kv:m) display_vector<U>(kv.second,kv.first);
+  for(auto kv:m) display_vec<U>(kv.second,kv.first);
   std::cout << std::endl;
 }
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1676531005 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\main.cpp
+1676874419 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\main.cpp
 	"utils/utils.hpp"
 	"day1.hpp"
 	"day2.hpp"
@@ -8,8 +8,9 @@
 	"day5.hpp"
 	"day6.hpp"
 	"day7.hpp"
+	"day8.hpp"
 
-1676622568 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\utils\utils.hpp
+1676881859 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\utils\utils.hpp
 	<vector>
 	<string>
 	<set>
@@ -64,7 +65,7 @@
 	"day4.hpp"
 	<string>
 
-1676619829 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day5.cpp
+1676880780 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day5.cpp
 	"utils/utils.hpp"
 	"day5.hpp"
 	<iostream>
@@ -82,7 +83,13 @@
 
 1676629064 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day7.hpp
 
-1676629286 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day7.cpp
+1676880862 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day7.cpp
 	"utils/utils.hpp"
 	"day7.hpp"
+
+1676874241 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day8.hpp
+
+1676886756 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day8.cpp
+	"utils/utils.hpp"
+	"day8.hpp"
 
