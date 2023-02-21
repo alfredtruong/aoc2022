@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1676956267 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\main.cpp
+1676970231 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\main.cpp
 	"utils/utils.hpp"
 	"day1.hpp"
 	"day2.hpp"
@@ -94,10 +94,16 @@
 	"utils/utils.hpp"
 	"day8.hpp"
 
-1676956568 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day9.cpp
+1676974916 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day9.cpp
 	"utils/utils.hpp"
 	"day9.hpp"
 
-1676960757 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day9.hpp
+1676974916 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day9.hpp
 	<cstdlib>
+
+1676974827 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day10.cpp
+	"utils/utils.hpp"
+	"day10.hpp"
+
+1676974827 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day10.hpp
 

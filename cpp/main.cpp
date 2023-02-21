@@ -8,10 +8,11 @@
 #include "day7.hpp"
 #include "day8.hpp"
 #include "day9.hpp"
+#include "day10.hpp"
 
 int main()
 {
-  day9_part1();
-  //day9_part2();
+  day10_part1();
+  day10_part2();
   return 0;
 }
