@@ -44,7 +44,7 @@ template <> //inline, need inline if declaring specialization in hpp, dont need 
 std::vector<std::string> parse_line<std::string>(const std::string line,const char delimiter,bool verbose);
 */
 template <typename T>
-std::vector<std::vector<T>> parse_file(const std::string filepath,const char delimiter,bool verbose = false,bool verbose_line = false)
+std::vector<std::vector<T>> parse_file(const std::string filepath,const char delimiter,bool verbose = false)
 {
   // open file
   std::fstream f;
@@ -61,7 +61,7 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
       std::cout << "[" << lines_read << "]\t";
     }
 
-    std::vector<T> words = split_string<T>(line,delimiter,verbose_line); // parse line
+    std::vector<T> words = split_string<T>(line,delimiter,verbose); // parse line
     vec_lines.push_back(words); // save line
 
     if (verbose)
