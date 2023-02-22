@@ -13,6 +13,6 @@
 int main()
 {
   day10_part1();
-  day10_part2();
+  //day10_part2();
   return 0;
 }
