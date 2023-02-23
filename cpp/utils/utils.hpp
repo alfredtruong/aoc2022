@@ -1,6 +1,7 @@
 #ifndef __UTILS_HPP
 #define __UTILS_HPP
 
+#include <deque>
 #include <vector>
 #include <string>
 #include <set>
@@ -18,26 +19,30 @@ std::vector<T> split_string(const std::string str,const char delimiter,bool verb
 {
   //std::cout << __func__ << std::endl;
   //std::cout << s << std::endl;
-
+  if (verbose) std::cout << "[" << __func__ << "]" << str << "|" << delimiter << "|" << verbose << std::endl;
   std::stringstream ss(str);
   std::vector<T> vec_words; // container for all parsed words
   std::string word; // temp container for single parsed word
   T converted;
   while(std::getline(ss,word,delimiter))
   {
-    if (verbose) std::cout << word << ", ";
+    if (verbose) std::cout << "[" << __func__ << "], [word]" << word;
 
     // use stringstream to convert type
     std::stringstream ssline;
     ssline << word;
     ssline >> converted;
 
+    if (verbose) std::cout << ", [converted]" << converted << "|" << std::endl;
     // save it
     vec_words.push_back(converted);
   }
   //if (verbose) std::cout << std::endl;
   return vec_words;
 }
+
+template <>
+std::vector<std::string> split_string(const std::string str,const char delimiter,bool verbose);
 
 /*
 template <> //inline, need inline if declaring specialization in hpp, dont need inline if moving specialization into cpp file
@@ -78,16 +83,25 @@ std::vector<std::vector<T>> parse_file(const std::string filepath,const char del
 }
 
 template<typename T>
-void display_vec(std::vector<T> v,std::string blurb = "",std::string delimiter = ", ")
+void display_deque(std::deque<T> dq,std::string blurb = "",std::string delimiter = "|")
 {
   if (blurb=="") blurb = __func__;
-  std::cout << "[" << blurb << "] size = " << v.size() << ", items = ";
+  std::cout << "[" << blurb << "] size = " << dq.size() << ", items = " << delimiter;
+  for (auto x:dq) std::cout << x << delimiter;
+  std::cout << std::endl;
+}
+
+template<typename T>
+void display_vec(std::vector<T> v,std::string blurb = "",std::string delimiter = "|")
+{
+  if (blurb=="") blurb = __func__;
+  std::cout << "[" << blurb << "] size = " << v.size() << ", items = " << delimiter;
   for (auto x:v) std::cout << x << delimiter;
   std::cout << std::endl;
 }
 
 template<typename T>
-void display_vecvec(std::vector<std::vector<T>> vv,std::string blurb = "",std::string delimiter = ", ")
+void display_vecvec(std::vector<std::vector<T>> vv,std::string blurb = "",std::string delimiter = "|")
 {
   if (blurb=="") blurb = __func__;
   std::cout << "[" << blurb << "] size = " << vv.size() << ", items = " << std::endl;
@@ -99,7 +113,7 @@ void display_vecvec(std::vector<std::vector<T>> vv,std::string blurb = "",std::s
 }
 
 template<typename T>
-void display_set(std::set<T> s,std::string blurb = "",std::string delimiter = ", ")
+void display_set(std::set<T> s,std::string blurb = "",std::string delimiter = "|")
 {
   if (blurb=="") blurb = __func__;
   std::cout << "[" << blurb << "] size = " << s.size() << ", items = ";
