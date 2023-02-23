@@ -91,9 +91,76 @@ void signal_decoder::do_instructions()
   }
 }
 
+crt::crt(std::string filepath) : m_signal_decoder_instance(filepath) // (A) instantiate instance
+{
+  //m_signal_decoder_instance(filepath);
+  m_signal_decoder_pointer = new signal_decoder(filepath); // (B) allocate instance on heap
+  decode_signal();
+  draw_screen();
+}
+
+crt::~crt()
+{
+  delete m_signal_decoder_pointer;
+}
+
+bool crt::should_draw_on_this_cycle(int cycle,int sprite_centre,bool verbose)
+{
+  bool should_draw;
+  int x_position = (cycle-1)%40;
+  if ((sprite_centre-1 <= x_position) && (x_position <= sprite_centre+1))
+    should_draw=true;
+  else
+    should_draw=false;
+
+  if (verbose)
+    std::cout << __func__ <<
+    "[" << cycle << "]" <<
+    " sprite_centre=" << sprite_centre <<
+    " x_position=" << x_position <<
+    " should_draw=" << should_draw <<
+    std::endl;
+
+  return should_draw;
+}
+
+void crt::decode_signal()
+{
+  int cycle=1;
+  for (int r=0;r<CRT_HEIGHT;r++)
+  {
+    for (int c=0;c<CRT_WEIGHT;c++)
+    {
+      int sprite_centre = m_signal_decoder_pointer->signal_during_cycle(cycle);
+
+      // draw on this cycle if sprite overlaps
+      if (should_draw_on_this_cycle(cycle,sprite_centre))
+        m_arr[r][c]='#';
+      else
+        m_arr[r][c]='.';
+
+      // increment for next cycle
+      //draw_screen();
+      cycle++;
+    }
+  }
+}
+
+void crt::draw_screen()
+{
+  for (int r=0;r<CRT_HEIGHT;r++)
+  {
+    for (int c=0;c<CRT_WEIGHT;c++)
+    {
+      std::cout << m_arr[r][c];
+    }
+    std::cout << std::endl;
+  }
+}
+
 void part_1_ex1()
 {
-  std::cout << "test 1" << std::endl;
+  std::cout << "part 1 example 1" << std::endl;
 
   signal_decoder s("../input/day10_ex1.txt");
   s.show_signal_history();
@@ -101,7 +168,7 @@ void part_1_ex1()
 
 void part_1_ex2()
 {
-  std::cout << "test 2" << std::endl;
+  std::cout << "part 1 example 2" << std::endl;
 
   signal_decoder s("../input/day10_ex2.txt");
   s.sum_signal_strength_during_cycle();
@@ -113,6 +180,20 @@ void part_1_sum_signal_strength()
 
   signal_decoder s("../input/day10_1.txt");
   s.sum_signal_strength_during_cycle();
+}
+
+void part_2_ex2()
+{
+  std::cout << "part 2 example" << std::endl;
+
+  crt c("../input/day10_ex2.txt");
+}
+
+void part_2_crt_output()
+{
+  std::cout << "part 2" << std::endl;
+
+  crt c("../input/day10_1.txt");
 }
 
 }
@@ -128,6 +209,6 @@ void day10_part1()
 void day10_part2()
 {
   std::cout << __func__ << std::endl << std::endl;
-  //day10::part_1("test data","../input/day10_0.txt");
-  //day10::part_1("test data","../input/day10_1.txt");
+  day10::part_2_ex2();
+  day10::part_2_crt_output();
 }

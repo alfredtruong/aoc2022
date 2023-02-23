@@ -41,46 +41,19 @@ class crt
 private:
   static const int CRT_HEIGHT = 6;
   static const int CRT_WEIGHT = 40;
-  char m_arr[CRT_HEIGHT][CRT_WEIGHT];
-  signal_decoder *m_signal_decoder;
+  char m_arr[CRT_HEIGHT][CRT_WEIGHT] = {'.'};
+  signal_decoder m_signal_decoder_instance; // (A) allocate memory for instance
+  signal_decoder *m_signal_decoder_pointer; // (B) allocate memory for pointer to instance (not allocated)
 
 public:
-  crt(std::string filepath)
-  {
-    m_signal_decoder = new signal_decoder(filepath);
-  }
-
-  bool should_draw_on_cycle(int cycle,int sprite_centre)
-  {
-    cycle = cycle%40;
-    if (sprite_centre-1 <= cycle <= sprite_centre+1)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-
-  void draw_screen()
-  {
-    int cycle=1;
-    for (int r=0;r<CRT_HEIGHT;r++)
-    {
-      for (int c=0;c<CRT_WEIGHT;r++)
-      {
-        int sprite_centre = m_signal_decoder.signal_during_cycle(cycle);
-
-        // draw on this cycle if sprite overlaps
-        if (should_draw_on_cycle(cycle,sprite_centre))
-          m_arr[r][c]='#';
-
-        // increment for next cycle
-        cycle++;
-      }
-    }
-  }
+  // (Q) why does m_signal_decoder_instance need to be instantiated in initializer list?
+  // (A) cos it doesnt have a default constructor
+  // https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/
+  crt(std::string filepath);
+  ~crt();
+  bool should_draw_on_this_cycle(int cycle,int sprite_centre,bool verbose=false);
+  void decode_signal();
+  void draw_screen();
 };
 
 
