@@ -3,19 +3,12 @@
 
 namespace day11 {
 
-void part_1(std::string blurb,std::string filepath)
-{
-}
-
-void part_2(std::string blurb,std::string filepath)
-{
-}
-
-
 
 void part_1_ex1()
 {
   std::cout << "part 1 example" << std::endl;
+
+  MonkeyBusiness mb("../input/day11_ex1.txt");
 }
 
 void part_1()

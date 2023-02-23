@@ -34,6 +34,10 @@
 		</Compiler>
 		<Unit filename="day1.cpp" />
 		<Unit filename="day1.hpp" />
+		<Unit filename="day10.cpp" />
+		<Unit filename="day10.hpp" />
+		<Unit filename="day11.cpp" />
+		<Unit filename="day11.hpp" />
 		<Unit filename="day2.cpp" />
 		<Unit filename="day2.hpp" />
 		<Unit filename="day3.cpp" />
@@ -46,6 +50,10 @@
 		<Unit filename="day6.hpp" />
 		<Unit filename="day7.cpp" />
 		<Unit filename="day7.hpp" />
+		<Unit filename="day8.cpp" />
+		<Unit filename="day8.hpp" />
+		<Unit filename="day9.cpp" />
+		<Unit filename="day9.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="utils/utils.cpp" />
 		<Unit filename="utils/utils.hpp" />
