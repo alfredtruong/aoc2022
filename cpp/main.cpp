@@ -14,6 +14,6 @@
 int main()
 {
   day11_part1();
-  //day11_part2();
+  day11_part2();
   return 0;
 }
