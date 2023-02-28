@@ -38,6 +38,10 @@
 		<Unit filename="day10.hpp" />
 		<Unit filename="day11.cpp" />
 		<Unit filename="day11.hpp" />
+		<Unit filename="day12.cpp" />
+		<Unit filename="day12.hpp" />
+		<Unit filename="day13.cpp" />
+		<Unit filename="day13.hpp" />
 		<Unit filename="day2.cpp" />
 		<Unit filename="day2.hpp" />
 		<Unit filename="day3.cpp" />
