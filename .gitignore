@@ -1,3 +1,5 @@
 /cpp/obj/*
 /cpp/bin/*
-cpp/dayX.*
+/cpp/dayX.*
+*.o
+*.exe

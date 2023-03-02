@@ -11,11 +11,12 @@
 #include "day10.hpp"
 #include "day11.hpp"
 #include "day12.hpp"
-#include "day13.hpp"
+#include "day13.hpp" // skipped
+#include "day14.hpp"
 
 int main()
 {
-  day12_part1();
-  day12_part2();
+  day14_part1();
+  day14_part2();
   return 0;
 }
