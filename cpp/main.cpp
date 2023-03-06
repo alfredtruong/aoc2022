@@ -16,7 +16,7 @@
 
 int main()
 {
-  //day14_part1();
+  day14_part1();
   day14_part2();
   return 0;
 }
