@@ -36,6 +36,20 @@ Monkey 3:
     If true: throw to monkey 0
     If false: throw to monkey 1)";
 
+auto ignore(int i=1)
+{
+  return [i](std::istream &o -> std::istream&)
+  {
+    std::string tmp;
+    int c=i;
+    while (c--)
+    {
+      o >> tmp;
+    }
+    return o;
+  };
+}
+
 struct Monkey
 {
   std::list<int64_t> items; // list of items held
@@ -70,6 +84,21 @@ void Task1(std::istream& file)
     Monkey monkey;
     std::string tmp;
     std::stringstream ss;
+
+    auto input = [&file]() -> auto
+    {
+      return std::stringstream(getLine(file));
+    }
+
+    input();
+
+    ss =(input() >> ignore(2));
+    while(ss>>tmp)
+    {
+      monkey.items.push_back(stoll(tmp));
+    }
+    input() >> ignore(4) >> monkey.op >> tmp;
+    tmp[0] == 'o' ? monkey.op = '^' : monkey.opValue = stoll(tmp);
   }
 }
 

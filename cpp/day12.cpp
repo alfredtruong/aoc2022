@@ -226,10 +226,10 @@ void ShortestPath::steps_from_lowest_points(bool verbose)
 void part_1_ex1()
 {
   std::cout << "part 1 example" << std::endl;
-  ShortestPath sp("../input/day12_ex1.txt");
+  ShortestPath sp("../input/day12_ex.txt");
   sp.steps_to_terminal_point();
 
-  ShortestPath sp2("../input/day12_ex1.txt",false);
+  ShortestPath sp2("../input/day12_ex.txt",false);
   sp2.steps_to_terminal_point();
 }
 
@@ -246,11 +246,11 @@ void part_1()
 void part_2_ex2()
 {
   std::cout << "part 2 example" << std::endl;
-  ShortestPath sp("../input/day12_ex1.txt");
+  ShortestPath sp("../input/day12_ex.txt");
   sp.steps_from_lowest_points(true);
 
   std::cout << "part 2 example" << std::endl;
-  ShortestPath sp2("../input/day12_ex1.txt",false);
+  ShortestPath sp2("../input/day12_ex.txt",false);
   sp2.steps_from_lowest_points(true);
 }
 

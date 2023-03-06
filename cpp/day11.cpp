@@ -272,7 +272,7 @@ void MonkeyBusiness::take_turn(int monkey_id,bool verbose)
 void part_1_ex1()
 {
   std::cout << "part 1 example" << std::endl;
-  MonkeyBusiness mb("../input/day11_ex1.txt");
+  MonkeyBusiness mb("../input/day11_ex.txt");
   mb.show_monkey_worry_divisor();
 }
 
@@ -286,7 +286,7 @@ void part_1()
 void part_2_ex2()
 {
   std::cout << "part 2 example" << std::endl;
-  MonkeyBusiness mb("../input/day11_ex1.txt",false);
+  MonkeyBusiness mb("../input/day11_ex.txt",false);
   mb.show_monkey_worry_divisor();
 }
 
