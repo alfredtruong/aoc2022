@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1678189622 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\main.cpp
+1678348996 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\main.cpp
 	"utils/utils.hpp"
 	"day1.hpp"
 	"day2.hpp"
@@ -16,6 +16,8 @@
 	"day13.hpp"
 	"day14.hpp"
 	"day15.hpp"
+	"day16.hpp"
+	"day17.hpp"
 
 1677139762 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\utils\utils.hpp
 	<deque>
@@ -145,7 +147,7 @@
 1678247163 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day15.hpp
 	<algorithm>
 
-1678187305 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day15.cpp
+1678247173 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day15.cpp
 	"utils/utils.hpp"
 	"day15.hpp"
 
@@ -154,4 +156,12 @@
 	"day16.hpp"
 
 1678245776 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day16.hpp
+
+1678350616 source:c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day17.cpp
+	"utils/utils.hpp"
+	"day17.hpp"
+
+1678363972 c:\users\ahkar\onedrive\documents\github\aoc2022\cpp\day17.hpp
+	<bitset>
+	<list>
 

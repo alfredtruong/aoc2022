@@ -14,10 +14,12 @@
 #include "day13.hpp" // skipped, revisit
 #include "day14.hpp"
 #include "day15.hpp" // skipped part 2, not straightforward
+#include "day16.hpp" // skipped, revisit
+#include "day17.hpp"
 
 int main()
 {
-  day15_part1();
-  day15_part2();
+  day17_part1();
+  day17_part2();
   return 0;
 }
