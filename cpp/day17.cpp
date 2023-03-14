@@ -1,6 +1,8 @@
 #include "utils/utils.hpp"
 #include "day17.hpp"
 
+// https://old.reddit.com/r/adventofcode/comments/zo81kq/2022_day_17_part_1_heights_of_the_tower/
+
 namespace day17 {
 
 
@@ -31,9 +33,10 @@ Cave::Cave(std::string filepath)
 void Cave::drop_n_shapes(int n_shapes,bool verbose)
 {
   for (int i=0;i<n_shapes;i++)
+  {
     drop_shape(m_rock_type_idx,verbose);
-
-  std::cout << m_contents.size() << std::endl;
+    std::cout << "[" << i << "] " << m_contents.size() << std::endl;
+  }
 }
 
 void Cave::drop_test(int rock_type_idx)
@@ -199,7 +202,7 @@ void Cave::blow_direction(int rock_type_idx,bool is_left,bool verbose)
     blow_plus(is_left,verbose);
     break;
   case 2:
-    blow_el(is_left,verbose);
+    blow_jay(is_left,verbose);
     break;
   case 3:
     blow_pipe(is_left,verbose);
@@ -345,7 +348,7 @@ void Cave::blow_plus(bool is_left,bool verbose)
   }
 }
 
-void Cave::blow_el(bool is_left,bool verbose)
+void Cave::blow_jay(bool is_left,bool verbose)
 {
   std::stringstream blurb;
 
@@ -600,7 +603,7 @@ void Cave::drop(int rock_type_idx)
     drop_plus();
     break;
   case 2:
-    drop_el();
+    drop_jay();
     break;
   case 3:
     drop_pipe();
@@ -691,7 +694,7 @@ void Cave::drop_plus()
   }
 }
 
-void Cave::drop_el()
+void Cave::drop_jay()
 {
   auto& line1 = m_contents[m_rock_bottom_idx+2];
   auto& line2 = m_contents[m_rock_bottom_idx+1];
@@ -794,14 +797,14 @@ void part_1_ex1()
 {
   std::cout << "part 1 example" << std::endl;
   Cave c("../input/day17_ex.txt");
-  c.drop_n_shapes(5,true);
+  c.drop_n_shapes(2022,false);
 }
 
 void part_1()
 {
   std::cout << "part 1" << std::endl;
   Cave c("../input/day17_1.txt");
-  c.drop_n_shapes(2022);
+  c.drop_n_shapes(2022,false);
 }
 
 void part_2_ex2()

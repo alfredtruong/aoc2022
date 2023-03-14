@@ -16,7 +16,8 @@
 #include "day15.hpp" // skipped part 2, not straightforward
 #include "day16.hpp" // skipped, revisit
 #include "day17.hpp" // skipped, ok for example, failed on real data
-#include "day18.hpp"
+
+// https://github.com/CueXXIII/adventofcode2022 // standalone C++ solutions
 
 int main()
 {

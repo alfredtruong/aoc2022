@@ -35,7 +35,7 @@ public:
   void blow_direction(int,bool,bool = false);
   void blow_minus(bool is_left = false,bool verbose = false);
   void blow_plus(bool is_left = false,bool verbose = false);
-  void blow_el(bool is_left = false,bool verbose = false);
+  void blow_jay(bool is_left = false,bool verbose = false);
   void blow_pipe(bool is_left = false,bool verbose = false);
   void blow_block(bool is_left = false,bool verbose = false);
   void blow_test(int);
@@ -43,7 +43,7 @@ public:
   void drop(int);
   void drop_minus();
   void drop_plus();
-  void drop_el();
+  void drop_jay();
   void drop_pipe();
   void drop_block();
   void drop_test(int);
